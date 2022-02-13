@@ -10,7 +10,6 @@
   --border-width: 20px;
   width: 80%;
   max-width: 500px;
-  padding: 10px;
   margin: 0 auto 0 auto;
   border-radius: var(--border-width);
   background: #000;
@@ -20,8 +19,32 @@
   border-top: 5px solid #f3ca25;
   animation: pulseShadow 2s infinite;
   align-items: center;
+  overflow: hidden;
 }
 
+.donthavetelegram p{
+  color: #b5b5b5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.donthavetelegram p a{
+  text-decoration: underline;
+  color: yellow;
+}
+
+.button_container{
+  padding: 10px;
+}
+
+.donthavetelegram {
+  background: #2ea5d9;
+  background-image: linear-gradient(#000, #2ea5d9);
+  width: 100%;
+  padding: 10px;
+}
 
 
 .box figure {
@@ -49,6 +72,7 @@
   font-size: 1rem;
   transform: scale(1);
 	animation: pulse 2s infinite;
+  margin-bottom: 2px;
 }
 
 .box button span {
