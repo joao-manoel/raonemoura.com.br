@@ -52,6 +52,7 @@
   border-radius: 50px;
   overflow: hidden;
   border: 1px solid transparent;
+  margin-top: 100px;
 }
 
 .box figure img{
@@ -84,11 +85,12 @@
 }
 
 .box header {
-  margin-top: -20px;
   background-color: #000;
   padding: 20px 30px;
   border-radius: 10px;
   border-top: 5px solid #f3ca25;
+  position: absolute;
+  margin-top: -10px;
 }
 
 @keyframes pulse {
