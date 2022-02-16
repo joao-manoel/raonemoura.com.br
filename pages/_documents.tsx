@@ -36,7 +36,7 @@ class MyDocument extends Document {
         <Head>
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta name="description" content="Junte-se ao telegram da semana do violino!" /> 
-          <meta name="facebook-domain-verification" content="srvn25jc8hyh3z91fgv3kf509p7o1q" />
+          
                
         </Head>
         <body>
