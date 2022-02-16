@@ -20,6 +20,7 @@ export function Page({children, path,title, description}: PageProps) {
           url, title
         }}
       />
+      
       {children}
     </>
   );

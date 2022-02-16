@@ -4,16 +4,16 @@ const description = 'Junte-se ao telegram da semana do violino!'
 const SEO = {
   title, 
   description,
-  canonical: 'https://telegram-raone.vercel.app',
+  canonical: 'https://telegram.raonemoura.com.br',
   openGraph: {
     type: 'website',
     locale: 'pt_Br',
-    url: 'https://telegram-raone.vercel.app/',
+    url: 'https://telegram.raonemoura.com.br',
     title,
     description,
     images: [
       {
-        url: `https://telegram-raone.vercel.app/og.jpg`,
+        url: `https://telegram.raonemoura.com.br/og.jpg`,
         alt: title,
         width: 1280,
         height: 720
