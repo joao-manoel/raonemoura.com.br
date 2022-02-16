@@ -11,7 +11,7 @@ const Home: NextPage = () => {
     <Page title="Semana do Violino - Convite do Telegram" description="" path="/">
 
       <Head>
-      <script dangerouslySetInnerHTML={{ __html: `alert('teste')!function(f,b,e,v,n,t,s)
+      <script dangerouslySetInnerHTML={{ __html: `!function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
             if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
