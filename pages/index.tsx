@@ -39,25 +39,18 @@ const Home: NextPage = () => {
               <img src={`images/0001.jpg`}  alt="semana do violino" />
             </figure>
             
-            <Link href="tg://join?invite=hwEB-A9Yr79mMmVh">
+            <Link href="https://chat.whatsapp.com/JCaMFzKZc19GgLYWwQn6FC">
               <a className={styles.button_container}>
                 <button>
                   <span>
-                    <img src={`images/telegram-icone-icon.png`} alt="telegram icon" />
+                    <img src={`images/whatsapp-icone-icon.png`} alt="telegram icon" />
                   </span>
-                  Clique Aqui Para Acessar O Grupo No Telegram
+                  Clique Aqui Para Acessar O Grupo No Whatsapp
                 </button>
               </a>
             </Link>
 
-            <div className={styles.donthavetelegram}>
-              <p>
-                Você não tem o telegram? 
-                <span>
-                  <Link href="https://telegram.org/apps"><a>Clique aqui</a></Link> para baixar no site oficial do telegram!
-                </span>
-              </p>
-            </div>
+           
           </div>
         </main>
       </div>
