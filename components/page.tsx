@@ -9,7 +9,7 @@ type PageProps = {
 }
 
 export function Page({children, path,title, description}: PageProps) {
-  const url = `https://telegram-raone.vercel.app${path}`
+  const url = `https://semanadoviolino.raonemoura.com.br/${path}`
   return (
     <>
       <NextSeo 

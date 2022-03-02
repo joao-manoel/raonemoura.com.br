@@ -4,16 +4,16 @@ const description = 'Junte-se ao telegram da semana do violino!'
 const SEO = {
   title, 
   description,
-  canonical: 'https://telegram.raonemoura.com.br',
+  canonical: 'https://semanadoviolino.raonemoura.com.br/',
   openGraph: {
     type: 'website',
     locale: 'pt_Br',
-    url: 'https://telegram.raonemoura.com.br',
+    url: 'https://semanadoviolino.raonemoura.com.br/',
     title,
     description,
     images: [
       {
-        url: `https://telegram.raonemoura.com.br/og.jpg`,
+        url: `https://semanadoviolino.raonemoura.com.br/og.jpg`,
         alt: title,
         width: 1280,
         height: 720
