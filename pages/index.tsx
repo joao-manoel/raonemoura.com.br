@@ -18,11 +18,11 @@ const Home: NextPage = () => {
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '637946230794881');
+        fbq('init', '296599255738250');
         fbq('track', 'PageView');`}} />
               
             <noscript dangerouslySetInnerHTML={{ __html: `<img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=637946230794881&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=296599255738250&ev=PageView&noscript=1"
   />` }}
           /> 
         <meta name="facebook-domain-verification" content="srvn25jc8hyh3z91fgv3kf509p7o1q" />
