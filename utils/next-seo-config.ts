@@ -1,5 +1,5 @@
 const title = 'Semana do violino - Raone Moura'
-const description = 'Junte-se ao telegram da semana do violino!'
+const description = 'Junte-se ao grupo no whatsapp da semana do violino!'
 
 const SEO = {
   title, 
