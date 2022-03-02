@@ -8,7 +8,7 @@ import { Page } from "../components/page"
 
 const Home: NextPage = () => {
   return (
-    <Page title="Semana do Violino - Convite do Telegram" description="" path="/">
+    <Page title="Semana do Violino - Grupo Exclusivo do Whatsapp" description="" path="/">
       <Head>
         <script dangerouslySetInnerHTML={{ __html: `!function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
