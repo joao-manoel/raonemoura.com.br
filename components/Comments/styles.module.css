@@ -1,0 +1,157 @@
+.container{
+    width: 1200px;
+    min-width: 200px;
+    padding-bottom: 100px;
+}
+
+.header h1{
+    padding: 15px 0px;
+    text-align: center;
+    border-bottom: 1px solid rgba(231, 183, 103, .1);
+    font-weight: 400;
+}
+
+.inputInsertComment{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputInsertComment .inputName{
+    background: #111;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    border-radius: 7px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    color: rgba(231, 183, 103, 1);
+    padding-left: 5px;
+}
+
+
+
+.inputInsertComment input {
+    width: 150px;
+    background: transparent;
+    border: none;
+    padding: 7px;
+    color: #fff;
+    outline: none;    
+    
+}
+
+.inputInsertComment textarea{
+    border: none;
+    max-width: 1200px;
+    min-width: 200px;
+    min-height: 60px;
+    outline: rgba(231, 183, 103, .1);
+    background: #111;
+    padding: 20px 10px;
+    color: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 1.1rem;
+    resize: vertical;
+}
+
+.inputInsertComment button {
+    margin-top: 10px;
+    border: none;
+    background-color: rgba(231, 183, 103, .1);
+    color: rgba(231, 183, 103, 1);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 10px;
+}
+
+.comments{
+    padding: 10px;
+}
+
+.commentContainer{    
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.commentName{
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+}
+
+.commentDate{
+    font-size: .8rem;
+    color: #333;
+}
+
+.commentMessage{
+    background: rgba(34, 22, 2, 0.8);
+    color: rgba(214, 183, 130, 0.8);
+    padding: 10px;
+    width: max-content;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 20px 20px 20px;
+}
+
+.loadMoreComments {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loadMoreComments button{
+    border: none;
+    background-color: rgba(231, 183, 103, .1);
+    color: rgba(214, 183, 130, 0.8);
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor:pointer;
+}
+
+.inputInsertComment .inputName span{
+    font-size: .9rem;
+    padding: 0px 6px;
+    padding-right: 65px;
+    color: #666;
+}
+
+.inputName button{
+    font-size: .9rem;
+    background: transparent;
+    padding: 5px;
+    margin-top: 1px;
+    color: #666;
+}
+
+@media (max-width: 1200px){
+    .container{
+        width: 700px;
+    }
+}
+
+@media (max-width: 700px){
+    .container{
+        width: 400px;
+    }
+}
+
+@media (max-width: 400px){
+    .container{
+        width: 200px;
+    }
+}
+
+@media (max-width: 200px){
+    .container{
+        width: 100px;
+    }
+}

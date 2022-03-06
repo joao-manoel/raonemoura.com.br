@@ -1,9 +1,10 @@
 .main {
+  width: 100%;
   min-height: 100vh;
-  background: linear-gradient(160deg, #005170 0%, #250b5b 100%);
   display: flex;
   justify-self: center;
   align-items: center;
+  background: linear-gradient(160deg, #005170 0%, #250b5b 100%);
 }
 
 .box{

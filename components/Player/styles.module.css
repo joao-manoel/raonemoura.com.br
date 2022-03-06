@@ -1,0 +1,16 @@
+.video{
+    width: 70%;
+    border-radius: 20px;
+    border: rgba(231, 183, 103, .1) 1px solid;
+    overflow: hidden;
+}
+
+.video video{
+    width: 100%;
+}
+
+@media (max-width: 1400px){
+    .video{
+        width: 100%;
+    }
+}

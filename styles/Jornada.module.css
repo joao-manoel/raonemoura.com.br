@@ -1,0 +1,164 @@
+.container{
+    min-height: 100vh;
+    background: #050801;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;    
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 120px ;
+}
+
+.header .logo{
+    width: 120px;
+}
+
+.header .semanadoviolino{
+    max-width: 500px;
+    min-width: 200px;
+}
+
+.container .content{
+    width: 70%;
+    min-width: 200px;
+    padding: 10px;
+    margin-top: 40px;
+    border-radius: 20px;
+}
+
+.container .content .title {
+    padding-left: 12px;
+    color: rgba(231, 183, 103, 1);
+}
+
+.container .content .box{
+    display: flex;
+    justify-content: space-around;
+}
+
+.container .content .video{
+    width: 70%;
+    border-radius: 20px;
+    border: rgba(231, 183, 103, .1) 1px solid;
+    overflow: hidden;
+}
+
+.container .content .video video{
+    width: 100%;
+}
+
+.container .content .menu{
+    width: 28%;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(231, 183, 103, .1);
+}
+
+.container .content h2{
+    color: rgba(231, 183, 103, .9);
+    font-weight: 400;
+}
+
+.container .content .box .buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .content .box .buttons button{
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.container .content .box .buttons button:hover{
+    background: linear-gradient(180deg, #050801 0%, rgba(231, 183, 103, .1) 70%, #050801 100%);
+    color: rgba(231, 183, 103, 1);
+}
+
+.container .content .box .buttons button:hover{
+
+}
+
+.container .content .box .buttons button span{
+    font-size: .7rem;
+    display: block;
+    margin-top: -12px;
+}
+
+.container .content .box .buttons button.notActive{
+    color: #333;
+    cursor: default;
+}
+
+.container .content .box .buttons button.notActive:hover{
+    background: transparent;
+}
+
+.container .content .box .buttons button.currentVideo{
+    color: rgba(231, 183, 103, .1);
+}
+
+.container .content .box .buttons button.currentVideo:hover{
+    background: transparent;
+    cursor: default;
+}
+
+@media (max-width: 1400px) {
+    .container .content .title {
+        text-align: center;
+    }
+    .container .content .box{
+        flex-direction: column;
+    }
+    .container .content .video{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .container .content .menu h2{
+        border-bottom: 1px solid rgba(231, 183, 103, .1);
+        padding-bottom: 3px;
+    }
+    .container .content .menu{
+        text-align: center;
+        width: 100%;
+        border: none;
+    }
+    .container .content .menu .buttons{
+        flex-direction: row;
+        justify-content: space-around;
+        padding-bottom: 10px;
+    }
+
+    .container .content .menu .buttons button{
+        border: 1px solid rgba(231, 183, 103, .1);
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 550px){
+    .header .semanadoviolino{
+        max-width: 80%;
+    }
+    .container .content .menu .buttons{
+        flex-direction: column;
+    }
+
+    .container .content .menu .buttons button{
+        padding: 15px 2px;
+        margin-top: 10px;
+        font-size: .8rem;
+    }
+
+    .container .content .menu .buttons button:first-child{
+        margin-top: none;
+    }
+}

@@ -36,8 +36,6 @@ class MyDocument extends Document {
         <Head>
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta name="description" content="Junte-se ao telegram da semana do violino!" /> 
-          
-               
         </Head>
         <body>
           <Main />

@@ -45,7 +45,7 @@ const Home: NextPage = () => {
                   <span>
                     <img src={`images/whatsapp-icone-icon.png`} alt="telegram icon" />
                   </span>
-                  Clique Aqui Para Acessar O Grupo No Whatsapp
+                  Clique Aqui Para Acessar O Grupo No Whatsapp!
                 </button>
               </a>
             </Link>
