@@ -1,7 +1,7 @@
 export const videos = [
     {
         id: 'xlYlHG1Bm_g',
-        title: "Preparando o violino",
+        title: "Como afinar o violino!",
         url: "",
         thumb: "",
         date: "07/03",
@@ -9,7 +9,7 @@ export const videos = [
       }, 
       {
         id: '',
-        title: "Apredendo sobre partitura",
+        title: "Aprendendo a segurar o violino e o arco!",
         url: "",
         thumb: "",
         date: "08/03",
@@ -17,7 +17,7 @@ export const videos = [
       },
       {
         id: '',
-        title: "Começando a dedilhar",
+        title: "Começando a dedilhar!",
         url: "",
         thumb: "",
         date: "09/03",
@@ -25,7 +25,7 @@ export const videos = [
       },
       {
         id: '',
-        title: "Finalizando a semana",
+        title: "Tocando a primeira música!",
         url: "",
         thumb: "",
         date: "10/03",
