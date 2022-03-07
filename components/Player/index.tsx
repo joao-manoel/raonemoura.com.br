@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 
 import ReactPlayer from 'react-player/vimeo'
-import { videoDef } from '../../pages/index'
+import { videoDef } from '../../pages/semanadoviolino'
 
 import {videos} from '../../utils/videos'
 

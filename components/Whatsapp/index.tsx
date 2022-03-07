@@ -2,9 +2,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
-
-import { Page } from "../components/page"
+import { Page } from '../page'
+import styles from '../../styles/Whatsapp.module.css'
 
 const Home: NextPage = () => {
   return (
