@@ -1,61 +1,87 @@
 /* eslint-disable @next/next/no-img-element */
+import { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Aulas.module.css'
+
+import {videos as VideoData} from '../utils/videos'
 
 import { Page } from "../components/page"
+import Player from '../components/Player'
+import Comment from '../components/Comments'
 
-const Home: NextPage = () => {
+export type videoDef = {
+  id: number;
+  title: string;
+  vimeo_id: string;
+  date: string;
+  active: boolean;
+}
+
+const Jornada: NextPage = () => {
+  
+  const [videos, setVideos] = useState<videoDef[]>(VideoData)
+  const [currentVideo, setCurrentVideo] = useState<videoDef>({} as videoDef)
+
+  useEffect(() => {
+    if(currentVideo){
+      const searchVideo = videos.find(video => video.vimeo_id == localStorage.getItem("lastVideo"))
+
+      if(searchVideo){
+        setCurrentVideo(searchVideo)
+        return
+      }
+
+      handleSelectVideo(videos[0])
+    }
+  }, [currentVideo, videos])
+
+  const handleSelectVideo = (video: videoDef) => {
+    if(video.active){
+      setCurrentVideo(video)
+      localStorage.setItem("lastVideo", video.vimeo_id)
+    }
+  }
+
   return (
-    <Page title="Semana do Violino - Grupo Exclusivo do Whatsapp" description="" path="/">
-      <Head>
-        <script dangerouslySetInnerHTML={{ __html: `!function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '296599255738250');
-        fbq('track', 'PageView');`}} />
-              
-            <noscript dangerouslySetInnerHTML={{ __html: `<img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=296599255738250&ev=PageView&noscript=1"
-  />` }}
-          /> 
-        <meta name="facebook-domain-verification" content="srvn25jc8hyh3z91fgv3kf509p7o1q" />
-      </Head>
+    <Page title="Semana do Violino - Raone Moura" description="Sua semana começa agora!" path="/">
       <div className={styles.container}>
+        
+        <header className={styles.header}>
+          <img className={styles.logo} src={`images/logo.png`} alt="Semana do Violino" />
+          <img className={styles.semanadoviolino} src={`images/semanadoviolino.png`} alt="Semana do Violino" />
+        </header>
 
-        <main className={styles.main}>
-          
+        <div className={styles.content}>
+          <header className={styles.title}>
+            <h1>{currentVideo.title}</h1>
+          </header>
+
           <div className={styles.box}>
-            <header>
-              <img src={`images/logo.png`} alt="raone moura" />
-            </header>
-            <figure>
-              <img src={`images/0001.jpg`}  alt="semana do violino" />
-            </figure>
-            
-            <Link href="https://chat.whatsapp.com/JCaMFzKZc19GgLYWwQn6FC">
-              <a className={styles.button_container}>
-                <button>
-                  <span>
-                    <img src={`images/whatsapp-icone-icon.png`} alt="telegram icon" />
-                  </span>
-                  Clique Aqui Para Acessar O Grupo No Whatsapp!
-                </button>
-              </a>
-            </Link>
 
-           
+            <Player currentVideo={currentVideo} />
+            
+            <div className={styles.menu}>
+              <h2>Sua Semana</h2>
+              <div className={styles.buttons}>
+                {videos.map(video => (
+                  <button 
+                    className={`${!video.active && styles.notActive } ${currentVideo.vimeo_id === video.vimeo_id && styles.currentVideo}`} 
+                    key={Math.random() * (0 - 2000) + 0} onClick={() => handleSelectVideo(video)}>
+                    <p>{video.title}</p>
+                    {video.active != true ? (<span>Disponivel apartir do dia {video.date} ás 18h</span>) : ""}
+                  </button>
+                ))}
+                
+                
+              </div>
+            </div>
           </div>
-        </main>
+        </div>
+
+        <Comment currentVideo={currentVideo.title}/>
       </div>
-      </Page>
+    </Page>
   )
 }
 
-export default Home
+export default Jornada
