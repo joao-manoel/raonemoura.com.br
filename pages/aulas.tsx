@@ -46,7 +46,7 @@ const Jornada: NextPage = () => {
   }
 
   return (
-    <Page title="Semana do Violino - Raone Moura" description="" path="/">
+    <Page title="Semana do Violino - Raone Moura" description="Sua semana começa agora!" path="/">
       <div className={styles.container}>
         
         <header className={styles.header}>
