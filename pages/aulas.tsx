@@ -1,14 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
-import styles from '../styles/Jornada.module.css'
+import styles from '../styles/Aulas.module.css'
+
+import {videos as VideoData} from '../utils/videos'
 
 import { Page } from "../components/page"
 import Player from '../components/Player'
 import Comment from '../components/Comments'
 
 export type videoDef = {
-  id: number
+  id: string
   title: string
   url: string
   thumb: string
@@ -19,40 +21,7 @@ export type videoDef = {
 const Jornada: NextPage = () => {
   
 
-  const [videos, setVideos] = useState<videoDef[]>([
-    {
-      id: 1,
-      title: "Jornada 01",
-      url: "videos/jornada01.mp4",
-      thumb: "",
-      date: "07/03",
-      active: true
-    }, 
-    {
-      id: 2,
-      title: "Jornada 02",
-      url: "videos/jornada02.mp4",
-      thumb: "",
-      date: "08/03",
-      active: true
-    },
-    {
-      id: 3,
-      title: "Jornada 03",
-      url: "videos/jornada03.mp4",
-      thumb: "",
-      date: "09/03",
-      active: false
-    },
-    {
-      id: 4,
-      title: "Jornada 04",
-      url: "videos/jornada04.mp4",
-      thumb: "",
-      date: "10/03",
-      active: false
-    }
-  ])
+  const [videos, setVideos] = useState<videoDef[]>(VideoData)
 
   const [currentVideo, setCurrentVideo] = useState<videoDef>({} as videoDef)
 
@@ -70,8 +39,10 @@ const Jornada: NextPage = () => {
   }, [currentVideo, videos])
 
   const handleSelectVideo = (video: videoDef) => {
-    setCurrentVideo(video)
-    localStorage.setItem("lastVideo", video.url)
+    if(video.active){
+      setCurrentVideo(video)
+      localStorage.setItem("lastVideo", video.url)
+    }
   }
 
   return (
@@ -90,10 +61,10 @@ const Jornada: NextPage = () => {
 
           <div className={styles.box}>
 
-            <Player url={currentVideo.url} />
+            <Player id={currentVideo.id} active={currentVideo.active} />
             
             <div className={styles.menu}>
-              <h2>Sua Jornada</h2>
+              <h2>Sua Semana</h2>
               <div className={styles.buttons}>
                 {videos.map(video => (
                   <button 

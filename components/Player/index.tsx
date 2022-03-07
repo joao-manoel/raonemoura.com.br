@@ -1,17 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from 'next'
-import { videoDef } from '../../pages/jornada'
+import { videoDef } from '../../pages/aulas'
 import styles from './styles.module.css'
 
 type PlayerProps = {
-    url: string
+  id: string
+  active: boolean
 }
 
-function Player({url}: PlayerProps) {
+function Player({id, active}: PlayerProps) {
   
   return (
     <div className={styles.video}>
-        <video src={url} controls/>   
+      {active && (
+        <iframe src={`https://www.youtube.com/embed/${id}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+      )}   
     </div>
   )
 }

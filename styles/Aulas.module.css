@@ -84,19 +84,11 @@
     color: rgba(231, 183, 103, 1);
 }
 
-.container .content .box .buttons button:hover{
-
-}
 
 .container .content .box .buttons button span{
-    font-size: .7rem;
+    font-size: .8rem;
     display: block;
     margin-top: -12px;
-}
-
-.container .content .box .buttons button.notActive{
-    color: #333;
-    cursor: default;
 }
 
 .container .content .box .buttons button.notActive:hover{
@@ -104,7 +96,12 @@
 }
 
 .container .content .box .buttons button.currentVideo{
-    color: rgba(231, 183, 103, .1);
+    color: rgba(231, 183, 103, .5);
+}
+
+.container .content .box .buttons button.notActive{
+    color: #666;
+    cursor: default;
 }
 
 .container .content .box .buttons button.currentVideo:hover{
@@ -113,6 +110,9 @@
 }
 
 @media (max-width: 1400px) {
+    .header {
+        padding-top: 40px;
+    }
     .container .content .title {
         text-align: center;
     }
@@ -141,6 +141,24 @@
     .container .content .menu .buttons button{
         border: 1px solid rgba(231, 183, 103, .1);
         border-radius: 10px;
+    }
+}
+
+@media (max-width: 700px) {
+    .container .content .title {
+        font-size: .9rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .container .content .title {
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .container .content .title {
+        font-size: .7rem;
     }
 }
 

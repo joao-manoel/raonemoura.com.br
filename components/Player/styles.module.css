@@ -5,12 +5,27 @@
     overflow: hidden;
 }
 
-.video video{
+.video iframe{
     width: 100%;
+    min-height: 500px;
 }
 
 @media (max-width: 1400px){
     .video{
         width: 100%;
+    }
+
+    
+}
+
+@media (max-width: 900px) {
+    .video iframe{
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 700px) {
+    .video iframe{
+        min-height: 200px;
     }
 }
