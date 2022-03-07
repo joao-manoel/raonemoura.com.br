@@ -40,10 +40,12 @@
 .container .content .box{
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
 }
 
 .container .content .video{
-    width: 70%;
+    width: 100%;
+    margin-bottom: 10px;
     border-radius: 20px;
     border: rgba(231, 183, 103, .1) 1px solid;
     overflow: hidden;
@@ -54,10 +56,16 @@
 }
 
 .container .content .menu{
-    width: 28%;
+    width: 100%;
     border-radius: 20px;
     text-align: center;
     border: 1px solid rgba(231, 183, 103, .1);
+}
+
+.container .content .menu .buttons{
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 10px;
 }
 
 .container .content h2{
@@ -89,7 +97,7 @@
     font-size: .8rem;
     display: block;
     margin-top: -12px;
-    color: rgba(231, 183, 103, .3);
+    color: rgba(231, 183, 103, .5);
 }
 
 .container .content .box .buttons button.notActive:hover{
@@ -110,39 +118,40 @@
     cursor: default;
 }
 
+.container .content .title {
+    text-align: center;
+}
+.container .content .box{
+    flex-direction: column;
+}
+.container .content .video{
+    width: 100%;
+}
+.container .content .menu h2{
+    border-bottom: 1px solid rgba(231, 183, 103, .1);
+    padding-bottom: 3px;
+}
+.container .content .menu{
+    text-align: center;
+    width: 100%;
+    border: none;
+}
+.container .content .menu .buttons{
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 10px;
+}
+
+.container .content .menu .buttons button{
+    border: 1px solid rgba(231, 183, 103, .1);
+    border-radius: 10px;
+}
+
 @media (max-width: 1400px) {
     .header {
         padding-top: 40px;
     }
-    .container .content .title {
-        text-align: center;
-    }
-    .container .content .box{
-        flex-direction: column;
-    }
-    .container .content .video{
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    .container .content .menu h2{
-        border-bottom: 1px solid rgba(231, 183, 103, .1);
-        padding-bottom: 3px;
-    }
-    .container .content .menu{
-        text-align: center;
-        width: 100%;
-        border: none;
-    }
-    .container .content .menu .buttons{
-        flex-direction: row;
-        justify-content: space-around;
-        padding-bottom: 10px;
-    }
-
-    .container .content .menu .buttons button{
-        border: 1px solid rgba(231, 183, 103, .1);
-        border-radius: 10px;
-    }
+    
 }
 
 @media (max-width: 700px) {

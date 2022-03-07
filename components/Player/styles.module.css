@@ -1,13 +1,14 @@
 .video{
-    width: 70%;
+    width: 100%;
     border-radius: 20px;
-    border: rgba(231, 183, 103, .1) 1px solid;
+    /*border: rgba(231, 183, 103, .1) 1px solid;*/
     overflow: hidden;
 }
 
 .video iframe{
     width: 100%;
     min-height: 500px;
+    border-radius: 20px;
 }
 
 @media (max-width: 1400px){

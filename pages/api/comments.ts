@@ -66,8 +66,6 @@ export default async function handler(
 
     const count = await db.collection('comments').find({currentVideo: video}).count()
 
-    console.log(count)
-
     db.collection('comments').find({currentVideo: video}).sort({"date": -1}).limit(Number(limit)).toArray(function(err, comments){
       if(err) throw err
 

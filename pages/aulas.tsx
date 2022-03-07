@@ -10,24 +10,21 @@ import Player from '../components/Player'
 import Comment from '../components/Comments'
 
 export type videoDef = {
-  id: string
-  title: string
-  url: string
-  thumb: string
-  date: string
-  active: boolean
+  id: number;
+  title: string;
+  vimeo_id: string;
+  date: string;
+  active: boolean;
 }
 
 const Jornada: NextPage = () => {
   
-
   const [videos, setVideos] = useState<videoDef[]>(VideoData)
-
   const [currentVideo, setCurrentVideo] = useState<videoDef>({} as videoDef)
 
   useEffect(() => {
     if(currentVideo){
-      const searchVideo = videos.find(video => video.url == localStorage.getItem("lastVideo"))
+      const searchVideo = videos.find(video => video.vimeo_id == localStorage.getItem("lastVideo"))
 
       if(searchVideo){
         setCurrentVideo(searchVideo)
@@ -41,7 +38,7 @@ const Jornada: NextPage = () => {
   const handleSelectVideo = (video: videoDef) => {
     if(video.active){
       setCurrentVideo(video)
-      localStorage.setItem("lastVideo", video.url)
+      localStorage.setItem("lastVideo", video.vimeo_id)
     }
   }
 
@@ -61,15 +58,15 @@ const Jornada: NextPage = () => {
 
           <div className={styles.box}>
 
-            <Player id={currentVideo.id} active={currentVideo.active} />
+            <Player currentVideo={currentVideo} />
             
             <div className={styles.menu}>
               <h2>Sua Semana</h2>
               <div className={styles.buttons}>
                 {videos.map(video => (
                   <button 
-                    className={`${!video.active && styles.notActive } ${currentVideo.url === video.url && styles.currentVideo}`} 
-                    key={video.id} onClick={() => handleSelectVideo(video)}>
+                    className={`${!video.active && styles.notActive } ${currentVideo.vimeo_id === video.vimeo_id && styles.currentVideo}`} 
+                    key={Math.random() * (0 - 2000) + 0} onClick={() => handleSelectVideo(video)}>
                     <p>{video.title}</p>
                     {video.active != true ? (<span>Disponivel apartir do dia {video.date} ás 18h</span>) : ""}
                   </button>

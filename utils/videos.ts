@@ -1,33 +1,29 @@
 export const videos = [
     {
-        id: 'xlYlHG1Bm_g',
+        id: 0,
         title: "Como afinar o violino!",
-        url: "",
-        thumb: "",
+        vimeo_id: "685565661",
         date: "07/03",
         active: true
       }, 
       {
-        id: '',
+        id: 1,
         title: "Aprendendo a segurar o violino e o arco!",
-        url: "",
-        thumb: "",
+        vimeo_id: "",
         date: "08/03",
         active: false
       },
       {
-        id: '',
+        id: 2,
         title: "Começando a dedilhar!",
-        url: "",
-        thumb: "",
+        vimeo_id: "",
         date: "09/03",
         active: false
       },
       {
-        id: '',
+        id: 3,
         title: "Tocando a primeira música!",
-        url: "",
-        thumb: "",
+        vimeo_id: "",
         date: "10/03",
         active: false
       }
