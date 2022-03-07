@@ -89,6 +89,7 @@
     font-size: .8rem;
     display: block;
     margin-top: -12px;
+    color: rgba(231, 183, 103, .3);
 }
 
 .container .content .box .buttons button.notActive:hover{

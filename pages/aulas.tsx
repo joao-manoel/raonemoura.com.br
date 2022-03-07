@@ -71,7 +71,7 @@ const Jornada: NextPage = () => {
                     className={`${!video.active && styles.notActive } ${currentVideo.url === video.url && styles.currentVideo}`} 
                     key={video.id} onClick={() => handleSelectVideo(video)}>
                     <p>{video.title}</p>
-                    {video.active != true ? (<span>{video.date}</span>) : ""}
+                    {video.active != true ? (<span>Disponivel apartir do dia {video.date} ás 18h</span>) : ""}
                   </button>
                 ))}
                 

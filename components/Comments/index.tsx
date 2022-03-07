@@ -132,7 +132,7 @@ export default function Comments({currentVideo} : CommentsPageProps) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>Tire Suas Duvidas!</h1>  
+        <h1>Tire Suas Dúvidas!</h1>  
       </header>
 
       <div className={styles.inputInsertComment}>
@@ -150,7 +150,7 @@ export default function Comments({currentVideo} : CommentsPageProps) {
           )
         }
         </div>
-        <textarea placeholder='tire sua duvida...'  onChange={(e) => setQuestion(e.target.value)}/>
+        <textarea placeholder='tire suas dúvidas...'  onChange={(e) => setQuestion(e.target.value)}/>
         <button onClick={() => handleSubmitQuestion()}>Enviar Duvida</button>
       </div>
 
