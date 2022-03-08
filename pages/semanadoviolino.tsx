@@ -85,7 +85,7 @@ export default function SemanaDoViolino({CookiesVideoId}: SemanaDoViolinoProps) 
   }
 
   return (
-    <Page title="Semana do Violino - Raone Moura" description={`${lessonid && lessonid !== null ? currentVideo.title : 'Semana do violino ja começou!' }`} path="/">
+    <Page title="Semana do Violino - Raone Moura" description='Semana do violino ja começou!' path="/">
       <div className={styles.container}>
         
         <header className={styles.header}>
