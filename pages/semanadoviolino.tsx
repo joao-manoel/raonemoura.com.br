@@ -54,12 +54,9 @@ export default function SemanaDoViolino({CookiesVideoId}: SemanaDoViolinoProps) 
   //verifica se algum video esta ja disponivel em tela se nao procura se ta salvo lo storage caso contrario set um video padrao
   useEffect(() => {
 
-    const SetNewVideo = (v: videoDef, t: boolean = false) => {
+    const SetNewVideo = (v: videoDef) => {
       setCurrentVideo(v)
-      setCookie(undefined, 'raonemoura.videoid', v.vimeo_id)
-      if(t){
-        console.log("padrao")
-      }
+      setCookie(undefined, 'raonemoura.videoid', v.vimeo_id)      
     }
 
     if(lessonid === undefined && currentVideo.id === undefined){
@@ -70,10 +67,10 @@ export default function SemanaDoViolino({CookiesVideoId}: SemanaDoViolinoProps) 
           return
         }
 
-        SetNewVideo(VideoData[0], true)
+        SetNewVideo(VideoData[0])
         return
       }
-      SetNewVideo(VideoData[0], true)
+      SetNewVideo(VideoData[0])
       return
     }
 

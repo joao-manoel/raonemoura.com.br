@@ -13,7 +13,7 @@ export const videos = [
         title: "Aprendendo a segurar o violino e o arco!",
         vimeo_id: "685937774",
         date: "08/03",
-        active: false
+        active: true
       },
       {
         id: 2,

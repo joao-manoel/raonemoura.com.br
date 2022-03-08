@@ -46,7 +46,6 @@
 .container .content .video{
     width: 100%;
     margin-bottom: 10px;
-    border-radius: 20px;
     border: rgba(231, 183, 103, .1) 1px solid;
     overflow: hidden;
 }
@@ -152,18 +151,13 @@
         padding-top: 40px;
     }
 
-    .container .content .menu{
-        margin-top: -90px;
-    }
+    
     
 }
 
 @media (max-width: 700px) {
     .container .content .title {
         font-size: .9rem;
-    }
-    .container .content .menu{
-        margin-top: -100px;
     }
 }
 
@@ -176,9 +170,6 @@
 @media (max-width: 400px) {
     .container .content .title {
         font-size: .7rem;
-    }
-    .container .content .menu{
-        margin-top: -130px;
     }
 }
 

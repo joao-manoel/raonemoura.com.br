@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { setCookie } from 'nookies';
 import { memo, useEffect, useState } from 'react'
+import { CgMusicNote } from 'react-icons/Cg';
 import ReactPlayer from 'react-player/vimeo'
 import { toast } from 'react-toastify';
 
@@ -24,7 +25,7 @@ function Player({currentVideo}: PlayerProps) {
   
   const [video, setVideo] = useState(currentVideo)
   const [asAutoNextVideo, setAsAutoNextVideo] = useState(false)
-  //const [isBtnSell, set]
+  const [isJourneyViolion, setIsJourneyViolion] = useState(false)
 
   useEffect(() => {
     if(!asAutoNextVideo){
@@ -72,14 +73,30 @@ function Player({currentVideo}: PlayerProps) {
           </header>
            <ReactPlayer url={`https://vimeo.com/${video.vimeo_id}`}  
             controls={true} width="100%" height={600} onProgress={(progress) => handleProgess(progress)} onEnded={() => handleVideoEnd()}/>
+
+          {isJourneyViolion && (
+            <>
+              <section className={styles.journey} >
+                <header>
+                  <h1><CgMusicNote /> Parabéns a Jornada do Violinista foi Desbloqueada!</h1>
+                </header>
+                <button>Começa Sua Jornada Clicando Aqui!</button>
+              </section>
+
+              <section className={styles.JourneyBtn}>
+                
+                <button className={styles.btnJourney}></button>
+              </section>
+            </>
+          )}
         </>
        
       )
       :
       (
-        <div className={styles.comming}>
+        <section className={styles.comming}>
           Em Breve {video.date}
-        </div>
+        </section>
       )
     }   
     </div>
