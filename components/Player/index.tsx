@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { setCookie } from 'nookies';
 import { memo, useEffect, useState } from 'react'
-import { CgMusicNote } from 'react-icons/Cg';
+import { CgMusicNote } from 'react-icons/cg';
 import ReactPlayer from 'react-player/vimeo'
 import { toast } from 'react-toastify';
 
