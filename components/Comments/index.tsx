@@ -39,13 +39,9 @@ export default function Comments({currentVideo} : CommentsPageProps) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentVideo, countComments])
 
+
   const LoadComments = () => {
     try{
-
-      if(currentVideo === undefined){
-        currentVideo = "Jornada 01"
-      }
-
       api.get<ResponseCommentsType>(`api/comments?limit=${countComments}&video=${currentVideo}`).then(response => {
         setComments(response.data.comments)
         setTotalComment(response.data.totalcomment)
@@ -92,6 +88,16 @@ export default function Comments({currentVideo} : CommentsPageProps) {
       return
     }
 
+    if(question.length < 3){
+      setMessage("Escreva mais um pouco")
+      return
+    }
+
+    if(name.length < 3){
+      setMessage("Tem certeza que seu nome tem menos de 3 caracteres?")
+      return
+    }
+
     if(question != '' && name != ''){
       
       try{
@@ -109,16 +115,14 @@ export default function Comments({currentVideo} : CommentsPageProps) {
           setQuestion("")
           setMessage("")
           return
+        }else{
+          setMessage("Ops, algo não planejado ocorreu, tente novamente mais tarde! #132")
+          return
         }
-
-        setMessage("Ops, algo não planejado ocorreu, tente novamente mais tarde! #132")
-        return
       } catch(error){
         setMessage("Ops, algo não planejado ocorreu, tente novamente mais tarde! #133")
       }
     }
-    setQuestion("")
-    setMessage("")
     setMessage("Todos os campos deve ser preenchido!")
 
   }
@@ -140,7 +144,7 @@ export default function Comments({currentVideo} : CommentsPageProps) {
         <div className={styles.inputName}>
           <MdOutlineAlternateEmail />
           {localName === "" ? (
-            <input type="text" placeholder='digite seu nome'  onChange={e => setName(e.target.value)}/>
+            <input type="text" placeholder='digite seu nome' minLength={3} min={3} onChange={e => setName(e.target.value)}/>
           )
           : (
             <>
@@ -150,7 +154,7 @@ export default function Comments({currentVideo} : CommentsPageProps) {
           )
         }
         </div>
-        <textarea placeholder='tire suas dúvidas...'  onChange={(e) => setQuestion(e.target.value)}/>
+        <textarea placeholder='tire suas dúvidas...' minLength={3} onChange={(e) => setQuestion(e.target.value)}/>
         <button onClick={() => handleSubmitQuestion()}>Enviar Duvida</button>
       </div>
 

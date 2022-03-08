@@ -64,14 +64,23 @@ export default async function handler(
     const {db} = await connect()
     const {limit, video} = req.query
 
+
     const count = await db.collection('comments').find({currentVideo: video}).count()
 
-    db.collection('comments').find({currentVideo: video}).sort({"date": -1}).limit(Number(limit)).toArray(function(err, comments){
-      if(err) throw err
+    if(video === "undefined"){
+      return db.collection('comments').find({}).sort({"date": -1}).limit(Number(limit)).toArray(function(err, comments){
+        if(err) throw err
+        res.status(200) .json({totalcomment: count, comments})
+      })
+    }
 
+    return db.collection('comments').find({currentVideo: video}).sort({"date": -1}).limit(Number(limit)).toArray(function(err, comments){
+      if(err) throw err
       res.status(200).json({totalcomment: count, comments})
     })
-    return
+
+    
+    
 
   }
 

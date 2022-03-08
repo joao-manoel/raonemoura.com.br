@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { useEffect, useState } from 'react'
-
+import next from 'next';
+import { memo, useEffect, useState } from 'react'
 import ReactPlayer from 'react-player/vimeo'
+import { toast } from 'react-toastify';
+
 import { videoDef } from '../../pages/semanadoviolino'
 
 import {videos} from '../../utils/videos'
@@ -21,29 +23,60 @@ interface PlayerProps {
 function Player({currentVideo}: PlayerProps) {
   
   const [progress, setProgress] = useState<ProgressType>({} as ProgressType)
+  const [video, setVideo] = useState(currentVideo)
+  const [asAutoNextVideo, setAsAutoNextVideo] = useState(false)
+
   const handleDuration = (progressVideo: ProgressType) => {
     setProgress(progressVideo)
   }
 
   useEffect(() => {
-    //quando o video chega em um determinado tempo disponibilizar em tela o botao de compra
-  })
+    if(!asAutoNextVideo){
+      setVideo(currentVideo)
+    }
+    localStorage.setItem('lastVideo', video.vimeo_id)
+  }, [currentVideo, video, asAutoNextVideo])
 
   const handleVideoEnd = () => {
-    const currentVideo = videos.find((video) => {
-      //quando o video acabar ja passa para o proximo - new Features!
-    }, console.log)
+    const nextVideo = videos.find(v => {
+      return v.id === currentVideo.id +1
+    })
+    
+    if(nextVideo){
+      if(nextVideo.active){
+        const loadNextVideo = new Promise((resolve, reject) => {
+          setTimeout(() => resolve(setVideo(nextVideo)), 3000)
+          setAsAutoNextVideo(true)
+        })
+
+        toast.promise(loadNextVideo, {
+          pending: 'Pulando para próxima aula em 3 segundos.',
+          success: 'Você ja pode assistir sua aula.',
+          error: 'OPS, algo deu errado!'
+        }, {
+          theme: 'dark'
+        })
+      }
+    }
   }
+
   
   return (
     <div className={styles.video}>
-      {currentVideo.active && (
+      {video.active ? (
         //<iframe src={`https://www.youtube.com/embed/${id}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-        <ReactPlayer url={`https://vimeo.com/${currentVideo.vimeo_id}`}  
+        <ReactPlayer url={`https://vimeo.com/${video.vimeo_id}`}  
         controls={false} width="100%" height={600} onProgress={(event) => handleDuration(event)} onEnded={() => handleVideoEnd()}/>
-      )}   
+      )
+      :
+      (
+        <div className={styles.comming}>
+          Em Breve  
+        </div>
+      )
+    }   
     </div>
   )
 }
 
-export default Player
+export default memo(Player)
