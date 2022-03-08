@@ -15,14 +15,14 @@ interface ResponseCommentsType {
 }
 
 interface CommentsPageProps {
-  currentVideo: string
+  currentVideoId: string
 }
 
 import Comment from "./comment"
 
 const LIMIT_COMMENT = 5
 
-export default function Comments({currentVideo} : CommentsPageProps) {
+export default function Comments({currentVideoId} : CommentsPageProps) {
 
   const [comments, setComments] = useState<CommentType[]>([])
   const [totalComment, setTotalComment] = useState(0)
@@ -37,19 +37,23 @@ export default function Comments({currentVideo} : CommentsPageProps) {
   useEffect(() =>{
     LoadComments();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentVideo, countComments])
+  }, [currentVideoId, countComments])
 
 
   const LoadComments = () => {
-    try{
-      api.get<ResponseCommentsType>(`api/comments?limit=${countComments}&video=${currentVideo}`).then(response => {
-        setComments(response.data.comments)
-        setTotalComment(response.data.totalcomment)
-      }).finally(() => {
-        setLoading(false)
-      })
-    } catch(error){
-      console.log(error)
+
+    if(currentVideoId !== undefined){
+      try{
+        api.get<ResponseCommentsType>(`api/comments?limit=${countComments}&videoId=${currentVideoId}`).then(response => {
+          setComments(response.data.comments)
+          setTotalComment(response.data.totalcomment)
+        }).finally(() => {
+          setLoading(false)
+        })
+      } catch(error){
+        console.log(error)
+      }
+      return
     }
   }
 
@@ -104,7 +108,7 @@ export default function Comments({currentVideo} : CommentsPageProps) {
         const comment = await api.post('api/comments', {
           name,
           message: question,
-          currentVideo
+          currentVideoId
         })
 
         localStorage.setItem('username', name)

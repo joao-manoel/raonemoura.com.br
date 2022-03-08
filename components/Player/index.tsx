@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import next from 'next';
+import { setCookie } from 'nookies';
 import { memo, useEffect, useState } from 'react'
 import ReactPlayer from 'react-player/vimeo'
 import { toast } from 'react-toastify';
@@ -22,19 +22,15 @@ interface PlayerProps {
 }
 function Player({currentVideo}: PlayerProps) {
   
-  const [progress, setProgress] = useState<ProgressType>({} as ProgressType)
   const [video, setVideo] = useState(currentVideo)
   const [asAutoNextVideo, setAsAutoNextVideo] = useState(false)
-
-  const handleDuration = (progressVideo: ProgressType) => {
-    setProgress(progressVideo)
-  }
+  //const [isBtnSell, set]
 
   useEffect(() => {
     if(!asAutoNextVideo){
       setVideo(currentVideo)
     }
-    localStorage.setItem('lastVideo', video.vimeo_id)
+    setCookie(undefined, 'raonemoura.videoid', video.vimeo_id)
   }, [currentVideo, video, asAutoNextVideo])
 
   const handleVideoEnd = () => {
@@ -60,18 +56,29 @@ function Player({currentVideo}: PlayerProps) {
     }
   }
 
+
+  const handleProgess = (progressVideo: ProgressType) => {
+    const {playedSeconds} = progressVideo
+    //increment new feature 
+    return
+  }
   
   return (
     <div className={styles.video}>
       {video.active ? (
-        //<iframe src={`https://www.youtube.com/embed/${id}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-        <ReactPlayer url={`https://vimeo.com/${video.vimeo_id}`}  
-        controls={false} width="100%" height={600} onProgress={(event) => handleDuration(event)} onEnded={() => handleVideoEnd()}/>
+        <>
+          <header className={styles.title}>
+            <h1>{video.title}</h1>
+          </header>
+           <ReactPlayer url={`https://vimeo.com/${video.vimeo_id}`}  
+            controls={true} width="100%" height={600} onProgress={(progress) => handleProgess(progress)} onEnded={() => handleVideoEnd()}/>
+        </>
+       
       )
       :
       (
         <div className={styles.comming}>
-          Em Breve  
+          Em Breve {video.date}
         </div>
       )
     }   

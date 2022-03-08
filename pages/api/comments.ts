@@ -31,7 +31,7 @@ export default async function handler(
   if( req.method === "POST"){
     const {db} = await connect()
     
-    const {name, message, currentVideo} = req.body
+    const {name, message, currentVideoId} = req.body
 
     if(!name && !message){
       return res.status(400).json({ error: "Missing body parameter" })
@@ -40,10 +40,9 @@ export default async function handler(
     const response = await db.collection('comments').insertOne({
       name,
       message,
-      currentVideo,
+      currentVideoId,
       active: true,
-      date: new Date()
-    
+      date: new Date()    
     })
   
     if(response){
@@ -62,19 +61,19 @@ export default async function handler(
   
   else if(req.method === "GET"){
     const {db} = await connect()
-    const {limit, video} = req.query
+    const {limit, videoId} = req.query
 
 
-    const count = await db.collection('comments').find({currentVideo: video}).count()
+    const count = await db.collection('comments').find({currentVideoId: videoId}).count()
 
-    if(video === "undefined"){
+    if(videoId === undefined && videoId === null){
       return db.collection('comments').find({}).sort({"date": -1}).limit(Number(limit)).toArray(function(err, comments){
         if(err) throw err
         res.status(200) .json({totalcomment: count, comments})
       })
     }
 
-    return db.collection('comments').find({currentVideo: video}).sort({"date": -1}).limit(Number(limit)).toArray(function(err, comments){
+    return db.collection('comments').find({currentVideoId: videoId}).sort({"date": -1}).limit(Number(limit)).toArray(function(err, comments){
       if(err) throw err
       res.status(200).json({totalcomment: count, comments})
     })

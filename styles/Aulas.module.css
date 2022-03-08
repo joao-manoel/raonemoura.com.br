@@ -151,12 +151,19 @@
     .header {
         padding-top: 40px;
     }
+
+    .container .content .menu{
+        margin-top: -90px;
+    }
     
 }
 
 @media (max-width: 700px) {
     .container .content .title {
         font-size: .9rem;
+    }
+    .container .content .menu{
+        margin-top: -100px;
     }
 }
 
@@ -169,6 +176,9 @@
 @media (max-width: 400px) {
     .container .content .title {
         font-size: .7rem;
+    }
+    .container .content .menu{
+        margin-top: -130px;
     }
 }
 
