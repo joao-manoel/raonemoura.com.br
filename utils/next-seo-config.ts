@@ -4,11 +4,11 @@ const description = 'Junte-se ao grupo no whatsapp da semana do violino!'
 const SEO = {
   title, 
   description,
-  canonical: 'https://raonemoura.com.br/',
+  canonical: 'https://www.raonemoura.com.br/',
   openGraph: {
     type: 'website',
     locale: 'pt_Br',
-    url: 'git c',
+    url: 'https://www.raonemoura.com.br/',
     title,
     description,
     images: [

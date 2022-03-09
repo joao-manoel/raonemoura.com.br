@@ -9,7 +9,7 @@ type PageProps = {
 }
 
 export function Page({children, path,title, description}: PageProps) {
-  const url = `https://raonemoura.com.br/${path}`
+  const url = `https://www.raonemoura.com.br/${path}`
   return (
     <>
       <NextSeo 
