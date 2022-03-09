@@ -13,7 +13,7 @@ const SEO = {
     description,
     images: [
       {
-        url: `https://semanadoviolino.raonemoura.com.br/og.jpg`,
+        url: `https://raonemoura.com.br/og.jpg`,
         alt: title,
         width: 1280,
         height: 720
