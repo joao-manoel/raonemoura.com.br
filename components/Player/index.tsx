@@ -80,12 +80,7 @@ function Player({currentVideo}: PlayerProps) {
                 <header>
                   <h1><CgMusicNote /> Parabéns a Jornada do Violinista foi Desbloqueada!</h1>
                 </header>
-                <button>Começa Sua Jornada Clicando Aqui!</button>
-              </section>
-
-              <section className={styles.JourneyBtn}>
-                
-                <button className={styles.btnJourney}></button>
+                <button>clique aqui para começar agora a sua jornada!</button>
               </section>
             </>
           )}

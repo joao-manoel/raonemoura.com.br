@@ -18,9 +18,9 @@ export const videos = [
       {
         id: 2,
         title: "Começando a dedilhar!",
-        vimeo_id: "",
+        vimeo_id: "686438039",
         date: "09/03",
-        active: false
+        active: true
       },
       {
         id: 3,

@@ -125,9 +125,19 @@ export default function SemanaDoViolino({CookiesVideoId}: SemanaDoViolinoProps) 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   
   const {'raonemoura.videoid': videoid} = parseCookies(ctx)
-  return {
-    props: {
-      CookiesVideoId: videoid
+
+  if(videoid){
+    return {
+      props: {
+        CookiesVideoId: videoid
+      }
     }
   }
+
+  return {
+    props: {
+      CookiesVideoId: null
+    }
+  }
+  
 }
