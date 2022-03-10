@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
 import { setCookie } from 'nookies';
 import { memo, useEffect, useState } from 'react'
 import { CgMusicNote } from 'react-icons/cg';
@@ -25,7 +26,7 @@ function Player({currentVideo}: PlayerProps) {
   
   const [video, setVideo] = useState(currentVideo)
   const [asAutoNextVideo, setAsAutoNextVideo] = useState(false)
-  const [isJourneyViolion, setIsJourneyViolion] = useState(false)
+  const [isJourneyViolion, setIsJourneyViolion] = useState(true)
 
   useEffect(() => {
     if(!asAutoNextVideo){
@@ -60,8 +61,13 @@ function Player({currentVideo}: PlayerProps) {
 
   const handleProgess = (progressVideo: ProgressType) => {
     const {playedSeconds} = progressVideo
-    //increment new feature 
+    /*
+    if((playedSeconds / 60) >= 8 ){
+      setIsJourneyViolion(true)
+      return
+    }
     return
+    */
   }
   
   return (
@@ -80,7 +86,11 @@ function Player({currentVideo}: PlayerProps) {
                 <header>
                   <h1><CgMusicNote /> Parabéns a Jornada do Violinista foi Desbloqueada!</h1>
                 </header>
-                <button>clique aqui para começar agora a sua jornada!</button>
+                <Link href="https://pay.hotmart.com/L67319512L">
+                  <a><button>clique aqui para começar agora a sua jornada!</button></a>
+                </Link>
+                <p className={styles.alertHotmart} >*Você sera redirecionado para pagina de compra da <Link href="https://hotmart.com"><a>Hotmart</a></Link>!</p>
+                
               </section>
             </>
           )}

@@ -56,6 +56,11 @@
     justify-content: center;
 }
 
+.journey .alertHotmart{
+    font-size: 0.7rem;
+    color:rgb(97, 97, 96)
+}
+
 
 @media (max-width: 1400px){
     .video{

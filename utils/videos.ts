@@ -25,8 +25,8 @@ export const videos = [
       {
         id: 3,
         title: "Tocando a primeira música!",
-        vimeo_id: "",
+        vimeo_id: "686850134",
         date: "10/03",
-        active: false
+        active: true
       }
 ]
